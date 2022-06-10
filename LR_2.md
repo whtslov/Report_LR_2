@@ -21,67 +21,59 @@
 ### 3. Текст программы
 
 ```c++
-#include<iostream>
+#include <iostream>
+#include <iomanip>
 using namespace std;
-int main(){
-	const int N = 5;
-	const int M = 3;
-	const int K = 4;
-	int A[N][M];
-	int B[M][K];
-	int C[N][K];
-
-	for ( int i = 0; i < N; i++){
-		for ( int j = 0; j < M; j++){
-			cout << "A[" << i+1 << ", "<< j+1 << "] = ";
-			cin >> A [i] [j];
-		}
-	}
-	
-	
-	for ( int i = 0; i < M; i++){
-		for ( int j = 0; j < K; j++){
-			cout << " B [ " << i+1 << ", "<< j+1 << "]=";
-			cin >> B [i] [j];
-		}
-	}
-	for (int i = 0; i < N; i++){
-		for (int j=0; j<K; j++) {
-			C[i][j]=0;
-			for (int k=0; k<M; k++){
-				C [i][j]+=A [i][k]*B[k][j];
-			}
-		}
-	}
-	cout << " Eto matriza C"<<
-for (int i=0; i < N ; i++)
-	{
-		for (int j=0; j < K ; j++ )
-		{ 
-			cout << C [i][j] << " ";
-		}
-				cout << endl;
-	}
-cout << " Eto matriza A"<<
-for (int i=0; i < N ; i++)
-	{
-		for (int j=0; j < M ; j++ )
-		{ 
-			cout << A [i][j] << " ";
-		}
-				cout << endl;
-	}
-cout << " Eto matriza B"<<
-for (int i=0; i < M ; i++)
-	{
-		for (int j=0; j < K ; j++ )
-		{ 
-			cout << B [i][j] << " ";
-		}
-				cout << endl;
-	}
-	system("pause");
-	return 0;
+int main()
+{
+    const int N = 5;
+    const int M = 4;
+    const int K = 3;
+    int A[N][M];
+    int B[M][K];
+    int C[N][K];
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < M; j++) {
+                cout << "A[" << i + 1 << " ," << j + 1 << "]=";
+                cin >> A[i][j];
+            }
+        }
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < M; j++) {
+                cout << setw(5) << A[i][j];
+            }
+            cout << endl;
+        }
+        for (int i = 0; i < M; i++) {
+            for (int j = 0; j <K; j++) {
+                cout << "B[" << i + 1 << " ," << j + 1 << "]=";
+                cin >> B[i][j];
+            }
+        }
+        for (int i = 0; i < M; i++) {
+            for (int j = 0; j < K; j++) {
+                cout << setw(5) << B[i][j];
+            }
+            cout << endl;
+        }
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < K; j++) {
+                C[i][j] = 0;
+                for (int l = 0; l < M; l++) {
+                    C[i][j] += A[i][l] * B[l][j];
+                }
+                
+            }
+        }
+        cout << "Answer C = " << endl;
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < K; j++) {
+                cout << setw(5) << C[i][j];
+            }
+            cout << endl;
+        }
+        system("PAUSE");
+        return 0;
 }
 ```
 
